@@ -6,8 +6,8 @@ CREATE TABLE `histories` (
 --
 --購入履歴のAUTOINCREMENT
 --
-`histry_id` int(11) NOT NULL AUTO_INCREMENT,
-primary key(history_id)
+`histry_id` int(11) NOT NULL primary key(history_id)
+    AUTO_INCREMENT,
 --   
 --user_idで購入人物確認
 --
@@ -15,8 +15,9 @@ primary key(history_id)
 --
 --購入した時間帯の確認
 --
-`create_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+`create_datetime` datetime NOT NULL DEFAULT 
+    CURRENT_TIMESTAMP) 
+    ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- 購入明細を表示するテーブルの作成
 --
@@ -36,5 +37,7 @@ CREATE TABLE `details` (
 --
 --購入された時間帯の表示
 --
-`create_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+`create_datetime` datetime NOT NULL DEFAULT 
+    CURRENT_TIMESTAMP) 
+    ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
