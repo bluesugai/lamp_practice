@@ -31,5 +31,4 @@ if(regist_item($db, $name, $price, $stock, $status, $image)){
   set_error('商品の登録に失敗しました。');
 }
 
-
 redirect_to(ADMIN_URL);
