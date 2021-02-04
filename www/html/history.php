@@ -18,9 +18,9 @@ $db = get_db_connect();
 $user = get_login_user($db);
 //view画面のforeach文に入れるmodel/historiesのselect
 $histories = get_history($db, $user['user_id']);
-
 //postでhistory_idを受け取る
 $history_id = get_post('history_id');
 
+$total = sum_history($histories);
 //viewにつなげる
-include_once '../view/finish_history.php';
+include_once '../view/history_view.php';

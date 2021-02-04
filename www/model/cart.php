@@ -116,7 +116,6 @@ function purchase_carts($db, $carts){
       $db,
       $history_id,
       $cart['item_id'],
-      $cart['price'],
       $cart['amount']
     );
     if(update_item_stock(
@@ -198,4 +197,12 @@ function insert_detail($db,$history_id,$item_id,$amount) {
     VALUES({$history_id},{$item_id},{$amount})
   ";
   return execute_query($db, $sql);
+}
+
+function sum_history($histories){
+  $total = 0; var_dump($histories);
+  foreach($histories as $history){
+    $total += $items['price'] * $detail['amount'];
+  }
+  return $total;
 }

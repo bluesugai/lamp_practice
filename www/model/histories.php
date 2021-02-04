@@ -6,19 +6,22 @@ require_once MODEL_PATH . 'db.php';
 function get_history($db, $user_id){
   $sql = "
     SELECT
-      histories.hisrory_id,
-      histories.user_id,
+      histories.history_id,
       histories.created,
-      details.item_id,
-      details.amount
+      items.price,
+      details.amount AS amount
     FROM
       histories
     JOIN
       details
     ON
-      histories.history_id = details.history_id
+    histories.history_id = details.history_id
+    JOIN
+      items
+    ON
+      details.item_id = items.item_id
     WHERE
       histories.user_id = {$user_id}
   ";
-  return fetch_query($db, $sql);
+  return fetch_all_query($db, $sql);
 }

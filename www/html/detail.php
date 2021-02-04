@@ -20,7 +20,7 @@ $histories = get_history($db, $user['user_id']);
 //postでhistory_idを受け取る
 $history_id = get_post('history_id');
 //view画面のforeach文に入れるmodel/detailsのselect文
-$datails = get_detail($db,$history_id);
+$details = get_detail($db,$history_id);
 
 //viewにつなげる
-include_once '../view/finish_datail.php';
+include_once '../view/datail_view.php';
