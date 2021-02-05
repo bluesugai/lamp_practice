@@ -20,5 +20,5 @@ function get_detail($db, $history_id){
       WHERE
         details.history_id = {$history_id}
       ";
-    return fetch_query($db, $sql,$history_id);
+    return fetch_all_query($db, $sql,$history_id);
 }

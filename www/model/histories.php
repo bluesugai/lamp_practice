@@ -9,13 +9,13 @@ function get_history($db, $user_id){
       histories.history_id,
       histories.created,
       items.price,
-      details.amount AS amount
+      details.amount
     FROM
       histories
     JOIN
       details
     ON
-    histories.history_id = details.history_id
+      histories.history_id = details.history_id
     JOIN
       items
     ON

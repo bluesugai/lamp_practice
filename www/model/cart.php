@@ -198,11 +198,10 @@ function insert_detail($db,$history_id,$item_id,$amount) {
   ";
   return execute_query($db, $sql);
 }
-
 function sum_history($histories){
-  $total = 0; var_dump($histories);
+  $total = 0;
   foreach($histories as $history){
-    $total += $items['price'] * $detail['amount'];
-  }
+    $total = $history['price'] * $history['amount'];
+  }var_dump($total);
   return $total;
 }

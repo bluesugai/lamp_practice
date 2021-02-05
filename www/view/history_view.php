@@ -20,7 +20,6 @@
           <th>注文番号</th>
           <th>購入日時</th>
           <th>合計金額</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
