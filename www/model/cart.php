@@ -116,7 +116,6 @@ function purchase_carts($db, $carts){
       $db,
       $history_id,
       $cart['item_id'],
-      $cart['price'],
       $cart['amount']
     );
     if(update_item_stock(

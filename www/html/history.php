@@ -17,10 +17,13 @@ if(is_logined() === false){
 $db = get_db_connect();
 $user = get_login_user($db);
 //view画面のforeach文に入れるmodel/historiesのselect
-$histories = get_history($db, $user['user_id']);
-
+if (is_admin($user)){
+  $histories = get_all_history($db);
+} else {
+  $histories = get_history($db, $user['user_id']);
+}
 //postでhistory_idを受け取る
 $history_id = get_post('history_id');
-
+$purchaseHistories = together_history($histories);
 //viewにつなげる
-include_once '../view/finish_history.php';
+include_once '../view/history_view.php';
