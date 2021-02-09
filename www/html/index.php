@@ -13,6 +13,24 @@ if(is_logined() === false){
 $db = get_db_connect();
 $user = get_login_user($db);
 
-$items = get_open_items($db);
+//$items = get_open_items($db);
+//$order = 'asc';
+//$items = get_items_by_price_order($db,$order);
+//$items = get_latest_time($db);
+
+$sort = '';
+if (isset($_GET['sorting'])) {
+    $sort = $_GET['sorting'];
+}
+
+// 新着順
+$items = [];
+if ($sort === 'maxprice' || $sort === 'minprice') {
+    // 価格が高い順 or 安い順で items を取得する
+    $items = get_items_by_price_order($db, $sort);// 価格が高い順 or 安い順で取得する関数
+} else {
+    // 新着順で items を取得する
+    $items = get_latest_time($db);// 新着順で取得する関数
+}
 
 include_once VIEW_PATH . 'index_view.php';

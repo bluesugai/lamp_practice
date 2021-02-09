@@ -13,7 +13,14 @@
   <div class="container">
     <h1>商品一覧</h1>
     <?php include VIEW_PATH . 'templates/messages.php'; ?>
-
+    <form method="get">
+    <select name="sorting">
+      <option value="">新着順</option>
+      <option value="maxprice"<?php if($sort === 'maxprice') { print 'selected';}?>>価格が高い順</option>
+      <option value="minprice"<?php if($sort === 'minprice') { print 'selected';}?>>価格が安い順</option>
+      </select>
+      <input type="submit" value="並び替え"> 
+    </form>
     <div class="card-deck">
       <div class="row">
       <?php foreach($items as $item){ ?>
