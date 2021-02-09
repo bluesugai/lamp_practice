@@ -72,3 +72,4 @@ function together_history($histories){
   return $purchaseHistories;
   }
   
+  
