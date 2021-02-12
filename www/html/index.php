@@ -13,11 +13,6 @@ if(is_logined() === false){
 $db = get_db_connect();
 $user = get_login_user($db);
 
-//$items = get_open_items($db);
-//$order = 'asc';
-//$items = get_items_by_price_order($db,$order);
-//$items = get_latest_time($db);
-
 $sort = '';
 if (isset($_GET['sorting'])) {
     $sort = $_GET['sorting'];
