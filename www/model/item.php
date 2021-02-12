@@ -43,6 +43,42 @@ function get_items($db, $is_open = false){
   return fetch_all_query($db, $sql);
 }
 
+function get_items_by_price_order($db,$kind){
+  $sort = 'DESC';
+  if ($kind === 'minprice'){
+      $sort = 'ASC';
+  } 
+  $sql = "
+    SELECT
+      item_id, 
+      name,
+      stock,
+      price,
+      image,
+      status
+    FROM
+      items 
+    WHERE
+      status = 1
+    ORDER BY price $sort
+  ";
+  return fetch_all_query($db, $sql);
+}
+function get_latest_time($db){
+  $sql = "
+  SELECT
+      item_id, 
+      name,
+      stock,
+      price,
+      image,
+      status
+    FROM
+      items
+    ORDER BY created DESC
+  ";
+  return fetch_all_query($db, $sql);
+}
 function get_all_items($db){
   return get_items($db);
 }
