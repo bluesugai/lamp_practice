@@ -21,7 +21,9 @@
       <option value="minprice"<?php if($sort === 'minprice') { print 'selected';}?>>価格が安い順</option>
       </select>
       <input type="submit" value="並び替え"> 
+      <input type="hidden" name="page" value="<?php print $page;?>">
     </form>
+
     </div>
     <div class="card-deck">
       <div class="row">
@@ -50,7 +52,29 @@
       <?php } ?>
       </div>
     </div>
+    <div class="col py-3 px-md-5 ">
+      <?php print $items_count['cnt']. '件中' . $page_bgn . "〜" . $page_fin . "件目の商品";
+      
+      if($page >1){
+        print '<a href="./index.php?page=' . ($page - 1) . '&sorting='.$sort.'" style="padding: 5px;">前へ</a>';
+            } else {
+        print '前へ'. '　';
+      }
+       for ( $i = 1; $i <= $total_page; $i ++){
+        if ( $i == $page ){
+            print $page;
+        }else{
+            print '<a href="./index.php?page='.$i. '&sorting='.$sort.'" style="padding: 5px;">'.$i.'</a>';
+        }
+       }
+      if($page < $total_page){
+
+        print '<a href="./index.php?page=' . ($page + 1) . '&sorting='.$sort.'" style="padding: 5px;">次へ</a>';
+      } else {
+        print '次へ'. '　';
+      }
+     ?>
+    </div>
   </div>
-  
 </body>
 </html>
