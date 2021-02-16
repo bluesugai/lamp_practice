@@ -56,3 +56,4 @@ if(count($items) === 8) {
 }
 //viewにつなげる
 include_once VIEW_PATH . 'index_view.php';
+
