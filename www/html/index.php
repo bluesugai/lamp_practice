@@ -26,7 +26,7 @@ if (isset($_GET['page'])) {
 }
 if ($page > 1) {
 	// 例：２ページ目の場合は、『(2 × 8) - 8 = 8』
-	$start = ($page * 8) - 8;
+	$start = ($page - 1) * 8 ;
 } else {
 	$start = 0;
 }
@@ -47,10 +47,10 @@ $total_page = ceil($items_count['cnt'] / 8);
 //ページの件数を出す処理
 $page_number = ($page - 1) * 8;
 //最小値
-$page_bgn = ($page_number + 1);
+$page_bgn = $page_number + 1;
 //最大値または件数の最後の数字を出す
 if(count($items) === 8) {
-  $page_fin = ($page_number + 8);
+  $page_fin = $page_number + 8;
 } else {
   $page_fin = $items_count['cnt'];
 }

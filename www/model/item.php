@@ -104,7 +104,10 @@ function get_pagination($db,$start){
 }
 function get_items_count($db){
   $sql = "
-    SELECT COUNT( * ) AS cnt FROM items;
+    SELECT 
+      COUNT( * ) AS cnt 
+    FROM 
+      items;
   ";
   return fetch_query($db, $sql);
 
@@ -272,4 +275,3 @@ function is_valid_item_status($status){
   }
   return $is_valid;
 }
-
