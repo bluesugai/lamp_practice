@@ -110,7 +110,6 @@ function get_items_count($db){
       items;
   ";
   return fetch_query($db, $sql);
-
 }
 function get_all_items($db){
   return get_items($db);
