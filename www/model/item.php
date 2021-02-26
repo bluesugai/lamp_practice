@@ -111,6 +111,29 @@ function get_items_count($db){
   ";
   return fetch_query($db, $sql);
 }
+
+function ranking($db){
+  $sql = "
+    SELECT
+      SUM(details.amount),
+      items.name,
+      items.price,
+      items.image
+    FROM
+      details
+    JOIN
+      items
+    ON
+      details.item_id = items.item_id
+    GROUP BY 
+      details.item_id
+    ORDER BY  
+      SUM(details.amount) DESC
+    LIMIT
+      0, 3
+  ";
+  return fetch_all_query($db, $sql);
+}
 function get_all_items($db){
   return get_items($db);
 }

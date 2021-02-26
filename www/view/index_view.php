@@ -74,6 +74,27 @@
         print '次へ'. '　';
       }
      ?>
+    <h2 class ="text-center">人気ランキング</h2>
+    <div class="table-responsive-md">
+    <table class="table">
+     <div class="card-deck">
+      <div class="row">
+        <?php foreach($rankings as $key => $ranking){ ?>
+            <div class="col-6 item">
+            <div class="card h-100 text-center">
+            <?php print $key + 1; ?>位
+                <div class="card-header">
+                  <?php print($ranking['name']); ?>
+                </div>
+                  <img class="card-img" src="<?php print(IMAGE_PATH . $ranking['image']); ?>">
+                    <?php print(number_format($ranking['price'])); ?>円              
+              </div>
+            </div>
+          <?php } ?>
+      </table>
+    </div>
+      </div>
+        </div>
     </div>
   </div>
 </body>
