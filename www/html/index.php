@@ -56,7 +56,6 @@ if(count($items) === 8) {
 }
 
 $rankings = ranking($db);
-//var_dump($ranking);
 //viewにつなげる
 include_once VIEW_PATH . 'index_view.php';
 
